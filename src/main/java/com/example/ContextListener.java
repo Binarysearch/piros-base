@@ -5,9 +5,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import org.piros.injection.Injector;
-import org.piros.injection.ControllerManager;
-import org.piros.services.MessageProcessorService;
-import org.piros.services.RequestProcessorService;
+import org.piros.api.services.ApiService;
 import org.piros.data.services.DatabaseService;
 
 @WebListener
@@ -19,12 +17,9 @@ public class ContextListener implements ServletContextListener {
         
         Injector.init(scanPath);
 
-        RequestProcessorService rpService = Injector.get(RequestProcessorService.class);
-        MessageProcessorService mpService = Injector.get(MessageProcessorService.class);
+        ApiService api = Injector.get(ApiService.class);
         
-        ControllerManager.scanControllers("org.piros", rpService);
-        ControllerManager.scanWsControllers(scanPath, mpService);
-        ControllerManager.scanControllers(scanPath, rpService);
+        api.scanControllers("org.piros", scanPath);
 
         DatabaseService ds = Injector.get(DatabaseService.class);
 

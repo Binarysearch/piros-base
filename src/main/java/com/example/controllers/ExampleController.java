@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 
 import com.example.services.ExampleService;
 
-import org.piros.injection.Controller;
+import org.piros.api.Controller;
 import org.piros.injection.Injected;
-import org.piros.servlet.ApiRequest;
+import org.piros.api.servlet.ApiRequest;
 
 public class ExampleController {
 
