@@ -8,7 +8,7 @@ import org.piros.injection.Injector;
 import org.piros.injection.ControllerManager;
 import org.piros.services.MessageProcessorService;
 import org.piros.services.RequestProcessorService;
-import org.piros.services.db.DatabaseService;
+import org.piros.data.services.DatabaseService;
 
 @WebListener
 public class ContextListener implements ServletContextListener {

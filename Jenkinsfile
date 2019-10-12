@@ -19,8 +19,11 @@ pipeline {
         stage('Install') {
             steps {
                 sh 'rm ./piros-core-1.0.0.jar || true'
+                sh 'rm ./piros-data-1.0.0.jar || true'
                 sh 'wget https://github.com/Binarysearch/piros-core/releases/download/1.0.0/piros-core-1.0.0.jar'
+                sh 'wget https://github.com/Binarysearch/piros-data/releases/download/1.0.0/piros-data-1.0.0.jar'
                 sh 'mvn install:install-file -Dfile=./piros-core-1.0.0.jar -DgroupId=org.piros -DartifactId=core -Dversion=1.0.0 -Dpackaging=jar'
+                sh 'mvn install:install-file -Dfile=./piros-data-1.0.0.jar -DgroupId=org.piros -DartifactId=data -Dversion=1.0.0 -Dpackaging=jar'
             }
         }
         stage('Build') {

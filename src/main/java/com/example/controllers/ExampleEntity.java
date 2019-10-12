@@ -1,7 +1,7 @@
 package com.example.controllers;
 
-import org.piros.db.Column;
-import org.piros.db.Table;
+import org.piros.data.Column;
+import org.piros.data.Table;
 
 @Table("example_table")
 public class ExampleEntity {

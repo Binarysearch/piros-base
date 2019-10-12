@@ -7,7 +7,7 @@ import com.example.services.ExampleService;
 
 import org.piros.injection.Injectable;
 import org.piros.injection.Injected;
-import org.piros.services.db.DatabaseService;
+import org.piros.data.services.DatabaseService;
 
 @Injectable
 public class ExampleServiceImpl implements ExampleService {
