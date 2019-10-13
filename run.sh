@@ -3,8 +3,7 @@ mvn clean compile &&
 (docker network create --attachable develop_network || true ) &&
 
 (docker container rm postgres-database -f || true) &&
-docker build --rm -f ./postgres/Dockerfile -t postgres-database:latest . &&
-docker run -d -p 5432:5432 --name=postgres-database --network=develop_network --network-alias=db postgres-database:latest &&
+docker run -d -p 5432:5432 --name=postgres-database --network=develop_network --network-alias=db postgres:11.3 &&
 
 (docker container rm tomcat-server -f || true) &&
 docker build --build-arg api_version_arg=dev --rm -f Dockerfile -t tomcat-server:latest . &&
