@@ -1,2 +1,3 @@
 // example
-curl -d '{"field1":"Something", "field2":15}' -H "Content-Type: application/json" -X POST http://localhost:8080/example
+curl -d '{"id":"a", "name":"Someone", "age":22, "changedFieldName":"Some value"}' -H "Content-Type: application/json" -X POST http://localhost:8080/example
+curl -d "a" -H "Content-Type: application/json" -X POST http://localhost:8080/delete-example

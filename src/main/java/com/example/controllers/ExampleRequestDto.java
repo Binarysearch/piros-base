@@ -1,28 +1,46 @@
 package com.example.controllers;
 
-
 public class ExampleRequestDto {
 
-    private String field1;
-    private Integer field2;
+    private String id;
+    private String name;
+    private String changedFieldName;
+    private Integer age;
 
     public ExampleRequestDto() {
     }
 
-    public String getField1() {
-        return field1;
+    public String getChangedFieldName() {
+        return changedFieldName;
     }
 
-    public void setField1(String field1) {
-        this.field1 = field1;
+    public void setChangedFieldName(String changedFieldName) {
+        this.changedFieldName = changedFieldName;
     }
 
-    public Integer getField2() {
-        return field2;
+    public String getId() {
+        return id;
     }
 
-    public void setField2(Integer field2) {
-        this.field2 = field2;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
 
 }

@@ -16,13 +16,18 @@ public class ExampleServiceImpl implements ExampleService {
     private DatabaseService ds;
 
     @Override
-    public void create(String field1, Integer field2) {
-        ds.insert(new ExampleEntity(field1, field2));
+    public void create(String id, String name, String changedFieldName, Integer age) {
+        ds.insert(new ExampleEntity(id, name, changedFieldName, age));
     }
 
     @Override
     public List<ExampleEntity> getAll() {
-        return ds.execute("select * from example_table", ExampleEntity.class);
+        return ds.execute("select * from example_entity", ExampleEntity.class);
+    }
+
+    @Override
+    public void delete(String id) {
+        this.ds.delete(ExampleEntity.class, id);
     }
     
 }
