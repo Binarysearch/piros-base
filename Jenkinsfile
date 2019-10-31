@@ -16,21 +16,22 @@ pipeline {
         DOCKER_NETWORK_ALIAS = 'piros-base'
     }
     stages {
-        stage('Install') {
-            steps {
-                sh 'rm ./piros-core-1.0.0.jar || true'
-                sh 'wget https://github.com/Binarysearch/piros-core/releases/download/1.0.0/piros-core-1.0.0.jar'
-                sh 'mvn install:install-file -Dfile=./piros-core-1.0.0.jar -DgroupId=org.piros -DartifactId=core -Dversion=1.0.0 -Dpackaging=jar'
-            }
-        }
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                script {
+                    withCredentials([string(credentialsId: 'maven-password', variable: 'MAVEN_PASSWORD')]) {
+                        sh 'mvn clean compile -s settings.xml -Dpassword=${MAVEN_PASSWORD}'
+                    }
+                }
             }
         }
         stage('Test and verify') {
             steps {
-                sh 'mvn verify'
+                script {
+                    withCredentials([string(credentialsId: 'maven-password', variable: 'MAVEN_PASSWORD')]) {
+                        sh 'mvn verify -s settings.xml -Dpassword=${MAVEN_PASSWORD}'
+                    }
+                }
             }
         }
         stage('Deliver dev') {
