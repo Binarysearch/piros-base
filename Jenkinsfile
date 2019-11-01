@@ -18,20 +18,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    withCredentials([string(credentialsId: 'maven-password', variable: 'MAVEN_PASSWORD')]) {
-                        sh 'mvn clean compile -s settings.xml -Dpassword=${MAVEN_PASSWORD}'
-                    }
-                }
+                sh 'mvn clean compile'
             }
         }
         stage('Test and verify') {
             steps {
-                script {
-                    withCredentials([string(credentialsId: 'maven-password', variable: 'MAVEN_PASSWORD')]) {
-                        sh 'mvn verify -s settings.xml -Dpassword=${MAVEN_PASSWORD}'
-                    }
-                }
+                sh 'mvn verify'
             }
         }
         stage('Deliver dev') {
