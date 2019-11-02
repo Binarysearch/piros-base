@@ -7,6 +7,7 @@ import com.example.services.ExampleService;
 
 import org.piros.injection.Injectable;
 import org.piros.injection.Injected;
+import org.piros.services.IdService;
 import org.piros.injection.Default;
 import org.piros.data.services.DatabaseService;
 
@@ -17,9 +18,12 @@ public class ExampleServiceImpl2 implements ExampleService {
     @Injected
     private DatabaseService ds;
 
+    @Injected
+    private IdService idService;
+    
     @Override
-    public void create(String id, String name, String changedFieldName, Integer age) {
-        ds.insert(new ExampleEntity(id, name, changedFieldName, age));
+    public void create(String name, Integer age) {
+        ds.insert(new ExampleEntity(idService.generate(), name, age));
     }
 
     @Override

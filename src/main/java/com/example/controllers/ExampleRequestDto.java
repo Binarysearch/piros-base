@@ -2,28 +2,10 @@ package com.example.controllers;
 
 public class ExampleRequestDto {
 
-    private String id;
     private String name;
-    private String changedFieldName;
     private Integer age;
 
     public ExampleRequestDto() {
-    }
-
-    public String getChangedFieldName() {
-        return changedFieldName;
-    }
-
-    public void setChangedFieldName(String changedFieldName) {
-        this.changedFieldName = changedFieldName;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {

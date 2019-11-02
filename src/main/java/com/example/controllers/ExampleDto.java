@@ -5,16 +5,14 @@ public class ExampleDto {
 
     private String id;
     private String name;
-    private String changedFieldName;
     private Integer age;
 
     public ExampleDto() {
     }
 
-    public ExampleDto(String id, String name, String changedFieldName, Integer age) {
+    public ExampleDto(String id, String name, Integer age) {
         this.id = id;
         this.name = name;
-        this.changedFieldName = changedFieldName;
         this.age = age;
     }
 
@@ -32,14 +30,6 @@ public class ExampleDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getChangedFieldName() {
-        return changedFieldName;
-    }
-
-    public void setChangedFieldName(String changedFieldName) {
-        this.changedFieldName = changedFieldName;
     }
 
     public Integer getAge() {

@@ -6,7 +6,7 @@ import com.example.controllers.ExampleEntity;
 
 public interface ExampleService {
 
-	public void create(String id, String name, String changedFieldName, Integer age);
+	public void create(String name, Integer age);
 
     public List<ExampleEntity> getAll();
 

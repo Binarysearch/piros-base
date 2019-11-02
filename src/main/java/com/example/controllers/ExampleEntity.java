@@ -1,6 +1,5 @@
 package com.example.controllers;
 
-import org.piros.data.Column;
 import org.piros.data.Id;
 import org.piros.data.Table;
 
@@ -10,19 +9,15 @@ public class ExampleEntity {
     @Id
     private String id;
     private String entityName;
-
-    @Column("other_field_name")
-    private String changedFieldName;
     
     private Integer age;
 
     public ExampleEntity() {
     }
 
-    public ExampleEntity(String id, String entityName, String changedFieldName, Integer age) {
+    public ExampleEntity(String id, String entityName, Integer age) {
         this.id = id;
         this.entityName = entityName;
-        this.changedFieldName = changedFieldName;
         this.age = age;
     }
 
@@ -49,15 +44,5 @@ public class ExampleEntity {
     public void setAge(Integer age) {
         this.age = age;
     }
-
-    public String getChangedFieldName() {
-        return changedFieldName;
-    }
-
-    public void setChangedFieldName(String changedFieldName) {
-        this.changedFieldName = changedFieldName;
-    }
-
-
     
 }

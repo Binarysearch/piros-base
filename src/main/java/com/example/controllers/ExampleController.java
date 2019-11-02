@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 import com.example.services.ExampleService;
 
 import org.piros.api.Controller;
+import org.piros.api.WsController;
 import org.piros.injection.Injected;
+import org.piros.model.session.Session;
 import org.piros.api.servlet.ApiRequest;
 
 public class ExampleController {
@@ -15,13 +17,12 @@ public class ExampleController {
     private ExampleService exampleService;
 
 
-    @Controller("/example")
-    public List<ExampleDto> test(ExampleRequestDto dto, ApiRequest request) {
-
-        exampleService.create(dto.getId(), dto.getName(), dto.getChangedFieldName(), dto.getAge());
+    @WsController("example")
+    public List<ExampleDto> test(ExampleRequestDto dto, Session session) {
+        exampleService.create(dto.getName(), dto.getAge());
 
         return exampleService.getAll().stream().map(
-            e -> new ExampleDto(e.getId(), e.getEntityName(), e.getChangedFieldName(), e.getAge())
+            e -> new ExampleDto(e.getId(), e.getEntityName(), e.getAge())
         ).collect(Collectors.toList());
         
     }
@@ -32,7 +33,7 @@ public class ExampleController {
         exampleService.delete(id);
 
         return exampleService.getAll().stream().map(
-            e -> new ExampleDto(e.getId(), e.getEntityName(), e.getChangedFieldName(), e.getAge())
+            e -> new ExampleDto(e.getId(), e.getEntityName(), e.getAge())
         ).collect(Collectors.toList());
         
     }
